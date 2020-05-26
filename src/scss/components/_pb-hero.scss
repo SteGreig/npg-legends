@@ -1,0 +1,164 @@
+.section--hero {
+  min-height: 100vh;
+
+  @include lg-up {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding-top: 40px;
+
+    @include xl-up {
+      padding: 40px 30px 30px;
+    }
+  }
+
+  &__logo {
+    text-align: center;
+    margin: 60px 0 0;
+
+    @include lg-up {
+      margin-top: 70px;
+    }
+  }
+
+  &__logo-img {
+    display: block;
+  }
+
+  &__logo-txt {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: .875rem;
+    margin-top: 23px;
+    display: block;
+
+    @include lg-up {
+      font-size: .95rem;
+    }
+  }
+
+  &__mid {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin-top: 35px;
+
+    @include lg-up {
+      max-width: 680px;
+      margin-top: 55px;
+    }
+  }
+
+  &__image-wrap {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $brandDeepRed;
+      opacity: .3;
+      z-index: 1;
+    }
+
+    &:hover .section--hero__play-icon {
+      transform: translateX(-50%) translateY(-50%) scale(1.2);
+    }
+  }
+
+  &__image {
+    filter: brightness(70%);
+    transition: .3s;
+  }
+
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
+    width: 12%;
+    transition: .3s;
+  }
+
+  .in-support {
+    font-size: 0.625rem;
+    font-family: $secondaryFont;
+    text-transform: uppercase;
+    font-weight: 100;
+
+    img {
+      margin-left: 4px;
+    }
+  }
+
+  &__copy {
+    font-family: $copyFont;
+    font-size: .875rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 10px auto 20px;
+
+    @include lg-up {
+      max-width: 680px;
+      column-count: 2;
+      margin: 40px auto 50px;
+
+      p {
+        margin: 0 0 20px;
+      }
+    }
+  }
+
+  &__ctas {
+    margin-bottom: 6vh;
+
+    @media screen and (min-width: 375px) and (min-height: 690px) {
+      margin-bottom: 10vh;
+    }
+
+    @include lg-up {
+      margin-bottom: 8vh;
+    }
+
+    @include lg-up {
+      @include flexbox;
+      max-width: 680px;
+      width: 100%;
+    }
+  }
+
+  .cta {
+    width: 100%;
+
+    @include lg-up {
+      font-size: .9rem;
+      padding: 22px;
+    }
+  }
+
+  .cta + .cta {
+    margin-top: 10px;
+    font-size: 0.7rem;
+
+    @media screen and (min-width: 375px) and (min-height: 690px) {
+      font-size: 0.8rem;
+    }
+
+    @include lg-up {
+      margin-top: 0;
+      margin-left: 30px;
+      font-size: .875rem;
+    }
+  }
+}

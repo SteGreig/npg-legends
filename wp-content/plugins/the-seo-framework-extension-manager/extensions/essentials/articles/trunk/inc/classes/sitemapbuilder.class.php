@@ -237,14 +237,14 @@ final class SitemapBuilder extends \The_SEO_Framework\Builders\Sitemap {
 			$locale = str_replace( '_', '-', \get_locale() );
 			$locale = preg_match( '/(zh-cn|zh-tw|[a-z]{2,3})/i', $locale, $matches ) ? $matches[1] : 'en';
 
-			$publication = $publication ?: [
+			$publication = [
 				'name'     => static::$tsf->escape_title( $name ),
 				'language' => strtolower( $locale ), // already escaped.
 			];
 		}
 
 		$data = [
-			'loc'       => $args['loc'],
+			'loc'       => $this->escape_xml_url_query( $args['loc'] ),
 			'news:news' => [
 				'news:publication'      => [
 					'news:name'     => $publication['name'],
@@ -258,7 +258,7 @@ final class SitemapBuilder extends \The_SEO_Framework\Builders\Sitemap {
 		$image = $args['image']['loc'] ? static::$tsf->s_url_relative_to_current_scheme( $args['image']['loc'] ) : '';
 		if ( $image ) {
 			$data['image:image'] = [
-				'image:loc' => $image,
+				'image:loc' => $this->escape_xml_url_query( $image ),
 			];
 		}
 
@@ -272,6 +272,7 @@ final class SitemapBuilder extends \The_SEO_Framework\Builders\Sitemap {
 	 *
 	 * @param array $data  The data to create an XML item from. Expected to be escaped!
 	 * @param int   $level The iteration level. Default 1 (one level in from urlset).
+	 *                     Affects non-mandatory tab indentation for readability.
 	 * @return string The XML data.
 	 */
 	private function create_xml( $data, $level = 1 ) {
@@ -291,6 +292,58 @@ final class SitemapBuilder extends \The_SEO_Framework\Builders\Sitemap {
 	}
 
 	/**
+	 * Escapes URL queries for XML.
+	 *
+	 * @since 2.3.1
+	 *
+	 * @param mixed $url The URL to escape.
+	 * @return string A value that's safe for XML use.
+	 */
+	private function escape_xml_url_query( $url ) {
+
+		$q = parse_url( $url, PHP_URL_QUERY );
+
+		if ( $q ) {
+			parse_str( $q, $r );
+			// Don't replace. Tokenize. The query part might be part of the URL (in some alien environment).
+			$url = strtok( $url, '?' ) . '?' . http_build_query( $r, null, '&amp;', PHP_QUERY_RFC3986 );
+		}
+
+		return $url;
+	}
+
+	/**
+	 * Escapes XML entities.
+	 *
+	 * @since 2.3.1
+	 * @ignore Unused.
+	 * @link <https://www.w3.org/TR/xml/#syntax>
+	 * @link <https://www.w3.org/TR/REC-xml/#sec-external-ent>
+	 *
+	 * @param mixed $value The value to escape.
+	 * @return string A value that's safe for XML use.
+	 */
+	private function escape_xml_entities( $value ) {
+
+		// Cache to improve performance.
+		static $s, $r;
+		if ( ! isset( $s, $r ) ) {
+			$list = [
+				'"' => '%22',
+				'&' => '%26',
+				"'" => '%27',
+				'<' => '%3C',
+				'>' => '%3E',
+			];
+
+			$s = array_keys( $list );
+			$r = array_values( $list );
+		}
+
+		return str_replace( $s, $r, $value );
+	}
+
+	/**
 	 * Asserts whether a post is eligible for the Google News sitemap.
 	 *
 	 * @since 2.0.0
@@ -306,8 +359,9 @@ final class SitemapBuilder extends \The_SEO_Framework\Builders\Sitemap {
 
 		$type = $this->get_post_meta( 'type' );
 
+		// We can collapse these 5 lines into one using PHP 7+...
+		// $type = $type ?: ( ( $this->get_option( 'post_types' )[ \get_post_type( $post_id ) ] ?? [] )['default_type'] ?? 'Article' );
 		if ( ! $type ) {
-			// We can collapse these 3 lines into one using PHP 7+...
 			$post_type_options = $this->get_option( 'post_types' );
 			$post_type         = \get_post_type( $post_id );
 			$type = isset( $post_type_options[ $post_type ]['default_type'] ) ? $post_type_options[ $post_type ]['default_type'] : 'Article';

@@ -5,49 +5,32 @@
 ////
 
 .cta {
-
-	box-sizing: border-box;
 	display: inline-block;
-	margin: 10px 0;
 	text-align: center;
 	text-decoration: none;
-	background: $Black;
-	color: $White;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 20px 18px;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 0.8rem;
+	font-family: $secondaryFont;
+	transition: .3s;
 
-	width: 100%; 
-	@include sm-up {
-		margin: 10px;
-		width: auto; 
+	&:hover {
+		background: #fff;
+		color: $brandDeepRed
 	}
 
-	&--sm {	
-		@include font-size(10, 14);
-		
-		padding: 5px 10px;
-	
-	}
-
-	&--md {
-		@include font-size(12, 16);
-		
-		padding: 10px 20px; 
+	&--sm {
+		font-size: .7rem;
+		padding: 18px 20px;
 	
 	}
 	
-	&--lg { 
-		@include font-size(14, 18);
-		
-		padding: 20px 40px;
-		
-	}
-
-	&--compare { 
-		@include font-size(14, 18);
-		
-		background: $Crimson;
-		color: $White;
-		padding: 20px 40px;
+	&--lg {
+		font-size: 1rem;
+		padding: 20px 80px;
 		
 	}
-
 }

@@ -1,1 +1,0 @@
-<?php // alt footer for landing pages

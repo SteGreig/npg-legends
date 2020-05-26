@@ -12,7 +12,7 @@ if ( \tsf_extension_manager()->_has_died() or false === ( \tsf_extension_manager
 
 /**
  * Monitor extension for The SEO Framework
- * Copyright (C) 2016-2019 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2016-2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -156,11 +156,11 @@ final class Tests {
 	 */
 	public function issue_title( $data ) {
 
-		$state = 'unknown';
+		$state   = 'unknown';
 		$content = '';
 
 		if ( ! isset( $data['located'] ) ) {
-			$state = 'unknown';
+			$state   = 'unknown';
 			$content = $this->no_data_found();
 			goto end;
 		}
@@ -170,7 +170,9 @@ final class Tests {
 		$consult_theme_author = false;
 
 		if ( ! $data['located'] ) {
-			$state = 'error';
+			$content .= $this->wrap_info( \esc_html__( 'No title tag was found.', 'the-seo-framework-extension-manager' ) );
+			$state    = 'error';
+
 			$consult_theme_author = true;
 		} elseif ( isset( $data['value'] ) && $data['value'] ) {
 			preg_match( '/(?:<title.*?>)(.*)?(?:<\/title>)/is', $data['value'], $matches );
@@ -178,7 +180,7 @@ final class Tests {
 
 			if ( ! $first_found_title ) {
 				$content .= $this->wrap_info( \esc_html__( 'The homepage title tag is empty.', 'the-seo-framework-extension-manager' ) );
-				$state = 'error';
+				$state    = 'error';
 				$consult_theme_author = true;
 			} else {
 
@@ -244,7 +246,7 @@ final class Tests {
 	public function issue_description( $data ) {
 
 		$content = '';
-		$state = 'unknown';
+		$state   = 'unknown';
 
 		if ( ! isset( $data['located'] ) ) {
 			$state = 'unknown';
@@ -252,8 +254,9 @@ final class Tests {
 			goto end;
 		}
 
-		$state = 'good';
+		$state   = 'good';
 		$content = '';
+
 		$consult_theme_author_on_duplicate = false;
 
 		if ( ! $data['located'] ) {
@@ -321,17 +324,19 @@ final class Tests {
 		}
 
 		$links = [];
+		$tsf   = \the_seo_framework();
 
 		foreach ( $data as $value ) :
 			if ( isset( $value['value'] ) && false === $value['value'] ) :
 				$id = isset( $value['post_id'] ) ? (int) $value['post_id'] : false;
 
 				if ( false !== $id ) {
-					// $home = isset( $value['home'] ) && $value['home'];
-					$post = \get_post( $id );
+					if ( ! $id ) {
+						$id = $tsf->get_the_front_page_ID();
+					}
 
-					$url   = \get_permalink( $post );
-					$title = \get_the_title( $post );
+					$title = $tsf->get_title( [ 'id' => $id ] );
+					$url   = $tsf->create_canonical_url( [ 'id' => $id ] );
 
 					$links[] = sprintf( '<a href="%s" target="_blank" rel="noopener">%s</a>', $url, $title );
 				}
@@ -340,7 +345,7 @@ final class Tests {
 
 		//* Links are filled in with erroneous pages.
 		if ( empty( $links ) ) {
-			$state = 'good';
+			$state   = 'good';
 			$content = $this->wrap_info( $this->no_issue_found() );
 		} else {
 			$state = 'bad';
@@ -407,6 +412,10 @@ final class Tests {
 
 		//* Cache safe.
 		$sample_tsf = \the_seo_framework()->robots_txt();
+
+		// TSF 4.0.5 compat, remove robots.txt warning. This warning cannot be translated, so this is fine... for now.
+		// TODO see note at robots_txt() method in The SEO Framework, and adjust this for that.
+		$sample_tsf = preg_replace( '/^\#.*?[\r\n]+\#.*?robots\.txt[\r\n]+/', '', $sample_tsf );
 
 		//* Normalize.
 		$sample_tsf    = \esc_html( str_replace( [ "\r\n", "\r", "\n" ], '', trim( $sample_tsf ) ) );

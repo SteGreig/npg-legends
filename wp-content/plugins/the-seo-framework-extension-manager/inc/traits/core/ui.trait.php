@@ -2,13 +2,14 @@
 /**
  * @package TSF_Extension_Manager\Traits
  */
+
 namespace TSF_Extension_Manager;
 
 defined( 'ABSPATH' ) or die;
 
 /**
  * The SEO Framework - Extension Manager plugin
- * Copyright (C) 2016-2019 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2016-2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -60,8 +61,8 @@ trait UI {
 		$this->ui_hook or \the_seo_framework()->_doing_it_wrong( __METHOD__, 'You need to specify property <code>ui_hook</code>' );
 
 		//* Remove WordPress footer strings.
-		\add_action( 'admin_footer_text', '__return_empty_string' );
-		\add_action( 'update_footer', '__return_empty_string' );
+		\add_action( 'admin_footer_text', '__return_empty_string', PHP_INT_MAX );
+		\add_action( 'update_footer', '__return_empty_string', PHP_INT_MAX );
 
 		//* Add body class.
 		\add_action( 'admin_body_class', [ $this, '_add_admin_body_class' ], 999, 1 );
@@ -341,7 +342,7 @@ trait UI {
 
 	/**
 	 * Registers Media CSS and JS scripts.
-	 * Also enqueues WordPress' media scripts.
+	 * Also enqueues WordPress's media scripts.
 	 *
 	 * @since 1.3.0
 	 * @since 2.0.2 : 1. Now uses TSF's Scripts module.

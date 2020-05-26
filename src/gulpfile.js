@@ -3,7 +3,7 @@
 /*
 	- WordPress Theme directory name
 */
-var projectTheme = 'custom-theme';
+var projectTheme = 'legends-npg';
 
 /*
 	- Node Modules
@@ -125,7 +125,9 @@ gulp.task('minifyLibs', function () {
 
 	return gulp.src([
 		'js/libs/ios-orientation.js',
-		'js/libs/js.cookie.js'
+		'js/libs/js.cookie.js',
+		'js/libs/lazysizes.min.js',
+		'js/libs/svgxuse.js'
 	])
 		.pipe(concat('app-libs.js'))
 		.pipe(minify())

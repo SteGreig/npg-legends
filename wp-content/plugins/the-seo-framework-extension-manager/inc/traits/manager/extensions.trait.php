@@ -2,13 +2,14 @@
 /**
  * @package TSF_Extension_Manager\Traits
  */
+
 namespace TSF_Extension_Manager;
 
 defined( 'ABSPATH' ) or die;
 
 /**
  * The SEO Framework - Extension Manager plugin
- * Copyright (C) 2016-2019 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2016-2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -85,10 +86,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1576566882',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'articles'  => [
 				'slug'         => 'articles',
@@ -97,11 +98,11 @@ trait Extensions_Properties {
 				'area'         => 'blogging, news',
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
-				'last_updated' => '1574553314',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
+				'last_updated' => '1588908764',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
 				'requires_tsf' => '4.0.2',
-				'tested_tsf'   => '4.0.5',
+				'tested_tsf'   => '4.0',
 			],
 			'honeypot'  => [
 				'slug'         => 'honeypot',
@@ -111,10 +112,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1542470700',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'cord'      => [
 				'slug'         => 'cord',
@@ -124,10 +125,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1576470514',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'local'     => [
 				'slug'         => 'local',
@@ -136,11 +137,11 @@ trait Extensions_Properties {
 				'area'         => 'business',
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
-				'last_updated' => '1565553458',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'last_updated' => '1589479187',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'amp'       => [
 				'slug'         => 'amp',
@@ -150,10 +151,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1565627638',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'monitor'   => [
 				'slug'         => 'monitor',
@@ -162,11 +163,11 @@ trait Extensions_Properties {
 				'area'         => 'uptime, syntax',
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
-				'last_updated' => '1576562324',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'last_updated' => '1589479187',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'incognito' => [
 				'slug'         => 'incognito',
@@ -176,10 +177,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1515109560',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'origin'    => [
 				'slug'         => 'origin',
@@ -189,10 +190,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1541601833',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 			'title-fix' => [
 				'slug'         => 'title-fix',
@@ -202,10 +203,10 @@ trait Extensions_Properties {
 				'author'       => 'Sybre Waaijer',
 				'party'        => 'first',
 				'last_updated' => '1572496812',
-				'requires'     => '4.9.0',
-				'tested'       => '5.3.2',
-				'requires_tsf' => '4.0.0',
-				'tested_tsf'   => '4.0.5',
+				'requires'     => '4.9',
+				'tested'       => '5.4',
+				'requires_tsf' => '4.0',
+				'tested_tsf'   => '4.0',
 			],
 		];
 	}
@@ -223,9 +224,9 @@ trait Extensions_Properties {
 	 */
 	private static function get_external_extensions_checksum() {
 		return [
-			'sha256' => '37e3cc1aa46fb179348ff0076e21a57e2a510f82f9dee0897d27e5cc1c5d2510',
-			'sha1'   => 'eb72614ea5cdd013549ebfa407f73d3f8e732f53',
-			'md5'    => '6039289e2d9832d33bc5bcedbe91f092',
+			'sha256' => '46e6b45adacaed0d82ba637fb989389a83b592de0464b377427fce1333829eeb',
+			'sha1'   => '21023a84016ce56c6b254e617099aa420ed41374',
+			'md5'    => '625888d43c7c723328c042a9a5db4a99',
 		];
 	}
 
@@ -408,6 +409,7 @@ trait Extensions_Properties {
  *
  * Warning: This trait holds front-end PHP security risks when mistreated. Always use
  * trait TSF_Extension_Manager\Enclose(_*) in pair with this trait.
+ *
  * @see /inc/traits/overload.trait.php
  *
  * @since 1.0.0
@@ -531,6 +533,7 @@ trait Extensions_Actions {
 	 * }
 	 */
 	public static function validate_extension_activation() {
+		// phpcs:disable, WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound -- condensed code
 
 		if ( ! self::verify_instance() ) {
 			return [ 'success' => false, 'case' => 0 ];
@@ -564,6 +567,7 @@ trait Extensions_Actions {
 		} else {
 			return [ 'success' => true, 'case' => 4 ];
 		}
+		// phpcs:enable, WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound
 	}
 
 	/**
@@ -662,6 +666,8 @@ trait Extensions_Actions {
 	 * and The SEO Framework versions.
 	 *
 	 * @since 2.1.0
+	 * @since 2.3.1 Now compares liniently.
+	 * @uses static::version_compare_linient()
 	 * @staticvar array $cache
 	 * @global string $wp_version
 	 *
@@ -686,19 +692,63 @@ trait Extensions_Actions {
 		$_tsf_version = THE_SEO_FRAMEWORK_VERSION;
 		$_wp_version  = $GLOBALS['wp_version'];
 
-		if ( version_compare( $_tsf_version, $extension['tested_tsf'], '>' ) ) {
-			$compatibility |= TSFEM_EXTENSION_TSF_UNTESTED;
-		} elseif ( version_compare( $_tsf_version, $extension['requires_tsf'], '<' ) ) {
+		if ( static::version_compare_linient( $_tsf_version, $extension['requires_tsf'], '<' ) ) {
 			$compatibility |= TSFEM_EXTENSION_TSF_INCOMPATIBLE;
+		} elseif ( static::version_compare_linient( $_tsf_version, $extension['tested_tsf'], '>' ) ) {
+			$compatibility |= TSFEM_EXTENSION_TSF_UNTESTED;
 		}
 
-		if ( version_compare( $_wp_version, $extension['tested'], '>' ) ) {
-			$compatibility |= TSFEM_EXTENSION_WP_UNTESTED;
-		} elseif ( version_compare( $_wp_version, $extension['requires'], '<' ) ) {
+		if ( static::version_compare_linient( $_wp_version, $extension['requires'], '<' ) ) {
 			$compatibility |= TSFEM_EXTENSION_WP_INCOMPATIBLE;
+		} elseif ( static::version_compare_linient( $_wp_version, $extension['tested'], '>' ) ) {
+			$compatibility |= TSFEM_EXTENSION_WP_UNTESTED;
 		}
+
+		$cache[ $extension['slug'] ] = $compatibility;
 
 		return $cache[ $extension['slug'] ] = $compatibility;
+	}
+
+	/**
+	 * Compares the versions liniently by restricting $version1 to $version2's length in a WP's major-release fashion.
+	 *
+	 * Major/minor/branch: M[...M].M.m-b
+	 * The second "Major" branch may only be of length 1. M.MM is therefore not allowed.
+	 *
+	 * @since 2.3.1
+	 * @link <https://www.php.net/manual/en/function.version-compare.php>
+	 *
+	 * @param string $version1 First version number.
+	 * @param string $version2 Second version number.
+	 * @param string $operator Optional. The comparison operator.
+	 * @return mixed When no operator is defined, -1 if the first version is lower than the second, 0 if they are equal,
+	 *               and 1 if the second is lower.
+	 *               When using the operator argument, return true if the relationship is the one specified by the
+	 *               operator, false otherwise. When an unsupported operator is given, NULL is returned.
+	 */
+	private static function version_compare_linient( $version1, $version2, $operator = null ) {
+
+		// 1: major, 2: minor, 3: branch
+		$regex = '/^(\d+\.\d)(\.\d+)?(-.*)?$/';
+
+		preg_match( $regex, $version1, $m_version1 );
+		preg_match( $regex, $version2, $m_version2 );
+
+		switch ( count( $m_version2 ) ) {
+			case 4: // branch
+			case 3: // minor
+				if ( isset( $operator ) )
+					return version_compare( $version1, $version2, $operator );
+				return version_compare( $version1, $version2 );
+
+			default: // major
+				$version1 = $m_version1[1];
+				$version2 = $m_version2[1];
+
+				if ( isset( $operator ) )
+					return version_compare( $version1, $version2, $operator );
+				return version_compare( $version1, $version2 );
+		}
 	}
 
 	/**
@@ -824,11 +874,14 @@ trait Extensions_Actions {
 			goto end;
 
 		$timeout = stream_context_create( [ 'http' => [ 'timeout' => 3 ] ] );
+		// phpcs:ignore, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- this is a local file call.
 		$json = json_decode( file_get_contents( $json_file, false, $timeout ) );
 
 		if ( empty( $json ) ) {
 			//* json file contents are invalid.
 			throw new \Exception( 'Extension test file is invalid', E_USER_ERROR );
+
+			// This won't run, and that's OK.
 			$success[] = false;
 			goto end;
 		}
@@ -851,7 +904,7 @@ trait Extensions_Actions {
 			}
 
 			if ( $_class ) {
-				$class = $namespace . '\\' . $_class;
+				$class     = $namespace . '\\' . $_class;
 				$success[] = (bool) new $class;
 			}
 		}
@@ -873,7 +926,7 @@ trait Extensions_Actions {
 	private static function persist_include_extension( $file, &$_instance, &$bits ) {
 
 		$yield_count = 0;
-		$success = [];
+		$success     = [];
 
 		//* Get follow-up verification instance.
 		foreach ( \tsf_extension_manager()->_yield_verification_instance( 2, $_instance, $bits ) as $verification ) :
@@ -968,7 +1021,7 @@ trait Extensions_Actions {
 			}
 		}
 
-		$error = error_get_last();
+		$error      = error_get_last();
 		$error_type = '';
 
 		switch ( $error['type'] ) :
@@ -995,15 +1048,25 @@ trait Extensions_Actions {
 
 		if ( \wp_doing_ajax() ) {
 			// TODO send slug?
-			\tsf_extension_manager()->send_json( [
-				'results'     => \TSF_Extension_Manager\get_ajax_notice( false, $error_notice, 10005 ),
-				'fatal_error' => sprintf( '<strong>Error message:</strong> %s', $advanced_error_notice ),
-			], 'failure' );
+			\tsf_extension_manager()->send_json(
+				[
+					'results'     => \TSF_Extension_Manager\get_ajax_notice( false, $error_notice, 10005 ),
+					'fatal_error' => sprintf( '<strong>Error message:</strong> %s', $advanced_error_notice ),
+				],
+				'failure'
+			);
 		} else {
 			$error_notice .= '<br>' . \esc_html__( 'Extension has not been activated.', 'the-seo-framework-extension-manager' );
 			$error_notice .= '<p><strong>Error message:</strong> <br>' . $advanced_error_notice . '</p>';
 
-			\wp_die( $error_notice, 'Extension error', [ 'back_link' => true, 'text_direction' => 'ltr' ] ); // xss ok.
+			\wp_die(
+				$error_notice, // phpcs:ignore, WordPress.Security.EscapeOutput.OutputNotEscaped -- it's escaped.
+				'Extension error',
+				[
+					'back_link'      => true,
+					'text_direction' => 'ltr',
+				]
+			);
 		}
 	}
 
@@ -1026,8 +1089,8 @@ trait Extensions_Actions {
 		//* Remove error location and line from message.
 		if ( ( $loc = stripos( $message, ' in /' ) ) ) {
 			$additions = '.php:' . $error['line'];
-			$loc_line = stripos( $message, $additions, $loc );
-			$offset = $loc_line - $loc + strlen( $additions );
+			$loc_line  = stripos( $message, $additions, $loc );
+			$offset    = $loc_line - $loc + strlen( $additions );
 
 			if ( $loc_line && ( $rem = substr( $message, $loc, $offset ) ) ) {
 				//* Continue only if there are no spaces.

@@ -2,6 +2,7 @@
 /**
  * @package TSF_Extension_Manager\Extension\Monitor\Output
  */
+
 namespace TSF_Extension_Manager\Extension\Monitor;
 
 defined( 'ABSPATH' ) or die;
@@ -11,7 +12,7 @@ if ( \tsf_extension_manager()->_has_died() or false === ( \tsf_extension_manager
 
 /**
  * Monitor extension for The SEO Framework
- * Copyright (C) 2016-2019 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2016-2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -45,7 +46,7 @@ final class Output {
 	 * @since 1.0.0
 	 * @access private
 	 *
-	 * @param array $data The pane data to parse.
+	 * @param array  $data The pane data to parse.
 	 * @param string $type The pane data type.
 	 * @return string The HTML pane overview.
 	 */
@@ -58,7 +59,7 @@ final class Output {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $data The pane data to parse.
+	 * @param array  $data The pane data to parse.
 	 * @param string $type The pane data type.
 	 * @return string The HTML pane overview.
 	 */
@@ -80,7 +81,7 @@ final class Output {
 	 * @since 1.0.0
 	 * @access private
 	 *
-	 * @param array $data The pane data to parse.
+	 * @param array  $data The pane data to parse.
 	 * @param string $type The pane data type.
 	 * @return array : {
 	 *     'info' => array The HTML pane overview items,
@@ -136,18 +137,15 @@ final class Output {
 		if ( $content ) {
 			switch ( $type ) :
 				case 'issues':
-					$title  = $this->get_entry_title( $key, $type );
+					$name   = $this->get_entry_title( $key, $type );
 					$prefix = $this->get_entry_state_icon( $key, $type );
 
-					$title = $prefix . $title;
+					$title = $prefix . $name;
 
 					return $this->build_collapsable_entry( $title, $content, $key, $this->get_entry_state( $key, $type ) );
-					break;
 
-				case 'stats':
 				default:
 					return sprintf( '<div class="tsfem-flex tsfem-flex-row">%s</div>', $content );
-					break;
 			endswitch;
 		}
 
@@ -172,16 +170,16 @@ final class Output {
 		static $count = 0;
 		$count++;
 
-		$id = $id ? sprintf( ' id="tsfem-e-monitor-collapse[%s]"', \esc_attr( $id ) ) : '';
+		$id         = $id ? sprintf( ' id="tsfem-e-monitor-collapse[%s]"', \esc_attr( $id ) ) : '';
 		$icon_state = $this->parse_defined_icon_state( $icon_state );
 
 		$checkbox_id = sprintf( 'tsfem-e-monitor-collapse-checkbox-%s', $count );
-		$checkbox = sprintf( '<input type="checkbox" id="%s" checked>', $checkbox_id );
+		$checkbox    = sprintf( '<input type="checkbox" id="%s" checked>', $checkbox_id );
 
 		$title = sprintf( '<h3 class="tsfem-e-monitor-collapse-title">%s</h3>', $title );
-		$icon = sprintf( '<span class="tsfem-e-monitor-collapse-icon tsfem-e-monitor-icon-%s"></span>', $icon_state );
+		$icon  = sprintf( '<span class="tsfem-e-monitor-collapse-icon tsfem-e-monitor-icon-%s"></span>', $icon_state );
 
-		$header = sprintf( '<label class="tsfem-e-monitor-collapse-header tsfem-flex tsfem-flex-row tsfem-flex-nowrap tsfem-flex-nogrow tsfem-flex-space" for="%s">%s%s</label>', $checkbox_id, $title, $icon );
+		$header  = sprintf( '<label class="tsfem-e-monitor-collapse-header tsfem-flex tsfem-flex-row tsfem-flex-nowrap tsfem-flex-nogrow tsfem-flex-space" for="%s">%s%s</label>', $checkbox_id, $title, $icon );
 		$content = sprintf( '<div class="tsfem-e-monitor-collapse-content">%s</div>', $content );
 
 		return sprintf( '<div class="tsfem-e-monitor-collapse"%s>%s%s%s</div>', $id, $checkbox, $header, $content );
@@ -458,10 +456,6 @@ final class Output {
 				$content = $this->parse_issues_content( $key, $value );
 				break;
 
-			case 'stats':
-				$content = $this->parse_stats_content( $key, $value );
-				break;
-
 			default:
 				break;
 		endswitch;
@@ -502,38 +496,6 @@ final class Output {
 		}
 
 		$this->reset_tsf_debugging();
-
-		return $content;
-	}
-
-	/**
-	 * Parses statistics $key content's $value.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $key   The array key.
-	 * @param mixed  $value The array value attached to $key.
-	 * @return string The statistics data content.
-	 */
-	protected function parse_stats_content( $key, $value ) {
-
-		static $graph = null;
-
-		if ( is_null( $graph ) )
-			$graph = Graph::get_instance();
-
-		$content = '';
-
-		if ( isset( $value['requires'] ) && version_compare( TSFEM_E_MONITOR_VERSION, $value['requires'], '>=' ) ) {
-			if ( isset( $value['tested'] ) && version_compare( TSFEM_E_MONITOR_VERSION, $value['tested'], '<=' ) ) {
-				$output = isset( $value['data'] ) ? $graph->{"stats_$key"}( $value['data'] ) : '';
-				if ( '' !== $output ) {
-					$content = $output['content'];
-				}
-			}
-		} else {
-			$content = $this->get_em_requires_update_notification();
-		}
 
 		return $content;
 	}
@@ -582,7 +544,9 @@ final class Output {
 
 		if ( null === $debug ) {
 			$debug = [];
+
 			$tsf = \the_seo_framework();
+
 			$debug[1] = $tsf->the_seo_framework_debug;
 			$debug[2] = $debug[1] ? \The_SEO_Framework\Debug::get_instance()->the_seo_framework_debug : false;
 		}

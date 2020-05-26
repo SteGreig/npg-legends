@@ -26,7 +26,6 @@
 // TOOLS
 @import 'tools/mixins';
 @import 'tools/functions';
-@import 'tools/hamburgers';
 
 // GENERIC
 @import 'generic/normalize';
@@ -39,26 +38,13 @@
 // OBJECTS
 @import 'objects/global';
 @import 'objects/theme';
-@import 'objects/hamburgers';
 @import 'objects/grid';
 
 // COMPONENTS
-@import 'components/gdpr';
+@import 'components/header';
 @import 'components/ctas';
-@import 'components/pb-banners';
-@import 'components/pb-banners-full-bleed';
-@import 'components/pb-copy';
-@import 'components/pb-copy-only';
-@import 'components/pb-copy-image';
-@import 'components/pb-copy-video';
-@import 'components/pb-full-width-video';
-@import 'components/pb-quote';
-@import 'components/pb-google-maps';
-@import 'components/pb-gallery';
-@import 'components/pb-compare';
-@import 'components/pb-copy-form';
-@import 'components/pb-accordion';
-@import 'components/pb-copy-blocks';
-@import 'components/pb-copy-block-picker';
+@import 'components/pb-hero';
+@import 'components/modal-video';
+@import 'components/footer';
 
 // TRUMPS

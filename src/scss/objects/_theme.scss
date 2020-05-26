@@ -1,23 +1,62 @@
 .theme {
 	
-	&--primary { 
-		color: $Black;	
-
-		.overlay { color: $White; }
-
+	&--primary,
+	&--red { 
+		background: $brandRed;
+		color: #fff;
 	}
 
-	&--secondary {
-		background: $CornflowerBlue;
-		color: $White;
+	&--secondary,
+	&--blue {
+		background: $brandBlue;
+		color: #fff;
 	}
 
-	&--alternative { 
-		background: $MintCream;
-		color: $DarkSlateGrey; 
+	&--alternative,
+	&--deep-red { 
+		background: $brandDeepRed;
+		color: #fff;
+	}
 
-		.overlay { color: $White; }
-		
+	&--pink {
+		background: $brandPink;
+		color: $brandDeepRed;
+	}
+
+	&--white {
+		background: #fff;
+		color: $brandDeepRed;
+	}
+
+	&--red-to-deep-red {
+		background: $brandRed;
+		color: #fff;
+		position: relative;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 310px;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 310px);
+			background: $brandDeepRed;
+
+			@include xs-up {
+				top: 330px;
+				height: calc(100% - 330px);
+			}
+
+			@include sm-up {
+				top: 410px;
+				height: calc(100% - 410px);
+			}
+
+			@include lg-up {
+				top: 500px;
+				height: calc(100% - 500px);
+			}
+		}
 	}
 
 }

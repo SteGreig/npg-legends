@@ -1,17 +1,7 @@
 
-	<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation">
-		<span class="hamburger-box">
-			<span class="hamburger-inner"></span>
-		</span>
-	</button>
+	<header class="header w100 flex items-center <?php if(is_front_page()) { echo "sp"; } ?>">
 
-	<nav class="main-nav">
-	<?php 
-		wp_nav_menu( array( 
-			'theme_location' => 'main',
-			'menu_class' => 'main-nav-list',
-			'container' => ''
-		));
-	?>
-	</nav>
+		<img class="site-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/npg-logo.svg" alt="National Portrait Gallery logo">
+
+	</header>
 

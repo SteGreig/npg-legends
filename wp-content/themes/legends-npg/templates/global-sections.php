@@ -6,7 +6,11 @@
 	
 		while ( have_rows( 'sections' ) ): the_row();
 
-			if( get_row_layout() == 'banner_full_bleed' ):
+				if( get_row_layout() == 'hero_section' ):
+
+					include( 'pb-hero.php' );	
+		
+				elseif( get_row_layout() == 'banner_full_bleed' ):
 
 					include( 'pb-banner-full-bleed.php' );
 	

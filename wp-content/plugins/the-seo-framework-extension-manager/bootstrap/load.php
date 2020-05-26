@@ -1,6 +1,6 @@
 <?php
 /**
- * @package TSF_Extension_Manager/Bootstrap
+ * @package TSF_Extension_Manager\Bootstrap
  */
 
 namespace TSF_Extension_Manager;
@@ -9,7 +9,7 @@ defined( 'TSF_EXTENSION_MANAGER_PLUGIN_BASE_FILE' ) or die;
 
 /**
  * The SEO Framework - Extension Manager plugin
- * Copyright (C) 2016-2019 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2016-2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -197,7 +197,7 @@ function _register_autoloader() {
 
 	/**
 	 * Register class autoload here.
-	 * This will make sure the website crashes when extensions try to bypass WordPress' loop.
+	 * This will make sure the website crashes when extensions try to bypass WordPress's loop.
 	 */
 	spl_autoload_register( __NAMESPACE__ . '\\_autoload_classes', true, true );
 }
@@ -284,7 +284,9 @@ function _autoload_classes( $class ) {
 	require $path . $class . '.class.php';
 
 	if ( $_bootstrap_timer ) {
-		\The_SEO_Framework\_bootstrap_timer( microtime( true ) - $_bootstrap_timer );
+		$_t = microtime( true ) - $_bootstrap_timer;
+		\The_SEO_Framework\_bootstrap_timer( $_t );
+		\TSF_Extension_Manager\_bootstrap_timer( $_t );
 		$_timenow = true;
 	}
 }

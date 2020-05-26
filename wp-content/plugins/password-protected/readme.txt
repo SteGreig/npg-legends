@@ -3,9 +3,9 @@ Contributors: husobj
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DXRJDNCMK9U3N
 Tags: password, protect, password protect, login
 Requires at least: 4.6
-Tested up to: 5.2.1
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 2.2.5
+Stable tag: 2.3
 License: GPLv2 or later
 
 A very simple way to quickly password protect your WordPress site with a single password.
@@ -21,14 +21,14 @@ Features include:
 * Password protect your WordPress site with a single password.
 * Option to allow access to feeds.
 * Option to allow administrators access without entering password.
-* Works with Mark Jaquith's [Login Logo](http://wordpress.org/extend/plugins/login-logo/) plugin.
-* Works with the [Uber Login Logo](http://wordpress.org/plugins/uber-login-logo/) plugin.
+* Works with Mark Jaquith's [Login Logo](https://wordpress.org/plugins/login-logo/) plugin.
+* Works with the [Uber Login Logo](https://wordpress.org/plugins/uber-login-logo/) plugin.
 
 > Please note, this plugin works by setting a cookie to allow access to the site. If you are using a caching plugin or web hosting such as WP Engine that has in-built caching, you will need to configure the caching service to be disabled if the Password Protected cookie is set.
 
 = Translations =
 
-If you would like to translate this plugin you can easily contribute at the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/password-protected/) page. The stable plugin needs to be 95% translated for a language file to be available to download/update via Wordpress.
+If you would like to translate this plugin you can easily contribute at the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/password-protected/) page. The stable plugin needs to be 95% translated for a language file to be available to download/update via WordPress.
 
 == Installation ==
 
@@ -44,8 +44,8 @@ If you are upgrading manually via FTP rather that through the WordPress automati
 
 == Frequently Asked Questions ==
 
-= How can I change the Wordpress logo to a different image? =
-Install and configure the [Login Logo](http://wordpress.org/extend/plugins/login-logo/) plugin by Mark Jaquith or the [Uber Login Logo](http://wordpress.org/plugins/uber-login-logo/) plugin. This will change the logo on your password entry page AND also your admin login page.
+= How can I change the WordPress logo to a different image? =
+Install and configure the [Login Logo](https://wordpress.org/plugins/login-logo/) plugin by Mark Jaquith or the [Uber Login Logo](https://wordpress.org/plugins/uber-login-logo/) plugin. This will change the logo on your password entry page AND also your admin login page.
 
 = How can I enable feeds while the site is password protected? =
 In the settings, check the 'Allow Feeds' checkbox.
@@ -71,7 +71,7 @@ You can also submit suggested enhancements if you like.
 If you can, please [fork the code](https://github.com/benhuson/password-protected) and submit a pull request via GitHub. If you're not comfortable using Git, then please just submit it to the issues link above.
 
 = How can I translate this plugin? =
-If you would like to translate this plugin you can easily contribute at the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/password-protected/) page. The stable plugin needs to be 95% translated for a language file to be available to download/update via Wordpress.
+If you would like to translate this plugin you can easily contribute at the [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/password-protected/) page. The stable plugin needs to be 95% translated for a language file to be available to download/update via WordPress.
 
 == Screenshots ==
 
@@ -80,7 +80,13 @@ If you would like to translate this plugin you can easily contribute at the [Tra
 
 == Changelog ==
  
-= Unreleased =
+= 2.3 =
+- Adds `password_protected_cookie_name` filter for the cookie name. Props [Jose Castaneda](https://github.com/jocastaneda).
+- Let developers override the capability needed to see the options page via a `password_protected_options_page_capability` filter. Props [Nicola Peluchetti](https://github.com/nicoladj77).
+- Don't use a "testcookie" POST query as it is blocked by Namecheap (and possibly other hosts).
+- Fix warnings in W3 validator - script and style “type” attribute not required. Props [@dianamurcia](https://github.com/dianamurcia).
+- Translations now via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/password-protected/).
+- Updated URL references. Props [Garrett Hyder](https://github.com/garretthyder).
 
 = 2.2.5 =
 - Added `password_protected_login_password_title` filter to allow customizing the "Password" label on the login form. Props [Jeremy Herve](https://github.com/jeherve).
@@ -213,6 +219,9 @@ If you would like to translate this plugin you can easily contribute at the [Tra
 * First Release. If you spot any bugs or issues please [log them here](https://github.com/benhuson/password-protected/issues).
 
 == Upgrade Notice ==
+
+= 2.3 =
+Fixed an issue with "testcookie" on some hosts. Added `password_protected_cookie_name` and `password_protected_options_page_capability` filters.
 
 = 2.2.5 =
 Added `password_protected_login_password_title` filter to allow customizing the "Password" label on the login form.
