@@ -18,7 +18,7 @@
 
     <div class="section--hero__copy">
       <?php the_sub_field('hs_copy'); ?>
-      <p class="in-support flex items-center">In support of <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/maggies-logo.svg" alt="Maggies logo"></p>
+      <p class="in-support flex items-center">Dedicated to <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/maggies-logo.svg" alt="Maggies logo"></p>
     </div>
 
     <?php if(have_rows('hs_ctas')): ?>
