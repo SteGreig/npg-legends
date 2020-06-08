@@ -1,1 +1,1 @@
-$(".modal-video").show(),$(".modal-video-trigger").click(function(){$(this).parents(".section").find(".modal-video").addClass("active")}),$(".modal-video__close").click(function(){$(".modal-video").removeClass("active")});
+$(".modal-video").show(),$(".modal-video-trigger").click(function(){$(this).parents(".section").find(".modal-video").addClass("active")}),$(".modal-video__close").click(function(){$(".modal-video").removeClass("active");var a=$(this).parents(".modal-video").find("iframe");$(a).attr("src",$(a).attr("src")),$(a).attr("src",$(a).attr("data-src"))});

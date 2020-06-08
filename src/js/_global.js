@@ -16,4 +16,7 @@ $('.modal-video-trigger').click(function() {
 
 $('.modal-video__close').click(function() {
 	$('.modal-video').removeClass('active');
+	var iframe = $(this).parents('.modal-video').find('iframe')
+	$(iframe).attr("src", $(iframe).attr("src"));
+	$(iframe).attr("src", $(iframe).attr("data-src"));
 });

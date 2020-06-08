@@ -10,6 +10,10 @@
     </h1>
 
     <div class="section--hero__mid">
+      <a href="https://www.youtube.com/watch?v=<?php echo get_sub_field('hs_video_id'); ?>" class="section--hero__image-wrap direct-video-link">
+          <img class="section--hero__image" src="<?php echo get_sub_field('hs_video_image')['url'];?>" alt="Legends Exhibition">
+          <img class="section--hero__play-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon-play.svg" alt="Play icon">
+      </a>
       <div class="section--hero__image-wrap modal-video-trigger">
           <img class="section--hero__image" src="<?php echo get_sub_field('hs_video_image')['url'];?>" alt="Legends Exhibition">
           <img class="section--hero__play-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon-play.svg" alt="Play icon">
@@ -34,6 +38,7 @@
   <?php
   $videoProvider = get_sub_field('hs_video_provider');
   $videoId = get_sub_field('hs_video_id');
+  $videoLink = get_sub_field('hs_video_link');
   include('modal-video.php'); ?>
 	
 </article>

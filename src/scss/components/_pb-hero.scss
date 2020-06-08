@@ -54,6 +54,22 @@
     }
   }
 
+  .direct-video-link {
+    display: block;
+
+    @include lg-up {
+      display: none;
+    }
+  }
+
+  .modal-video-trigger {
+    display: none;
+
+    @include lg-up {
+      display: block;
+    }
+  }
+
   &__image-wrap {
     width: 100%;
     position: relative;
