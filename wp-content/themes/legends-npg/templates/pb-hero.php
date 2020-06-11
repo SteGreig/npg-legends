@@ -10,7 +10,8 @@
     </h1>
 
     <div class="section--hero__mid">
-      <a href="https://www.youtube.com/watch?v=<?php echo get_sub_field('hs_video_id'); ?>" class="section--hero__image-wrap direct-video-link">
+      <?php $videoID = get_sub_field('hs_video_id'); ?>
+      <a href="javascript:delay('https://www.youtube.com/watch?v=<?php echo $videoID; ?>')" class="section--hero__image-wrap direct-video-link">
           <img class="section--hero__image" src="<?php echo get_sub_field('hs_video_image')['url'];?>" alt="Legends Exhibition">
           <img class="section--hero__play-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon-play.svg" alt="Play icon">
       </a>
@@ -40,5 +41,13 @@
   $videoId = get_sub_field('hs_video_id');
   $videoLink = get_sub_field('hs_video_link');
   include('modal-video.php'); ?>
+
+  <div class="section--hero__info-modal">
+    <p class="mob"><?php the_sub_field('modal_mobile'); ?></p>
+    <p class="desktop"><?php the_sub_field('modal_desktop'); ?></p>
+    <div class="info-modal__close">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon-close.svg" alt="Close icon">
+    </div>
+  </div>
 	
 </article>
